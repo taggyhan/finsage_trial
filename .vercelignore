@@ -1,0 +1,25 @@
+# Exclude virtual environment directories
+myenv/
+venv/
+env/
+
+# Exclude local database files
+*.sqlite3
+
+# Exclude cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.tmp
+
+# Exclude test files
+tests/
+test_*.py
+
+# Exclude documentation
+docs/
+*.md
+
+# Exclude node_modules if you have any Node.js dependencies
+node_modules/
