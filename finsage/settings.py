@@ -17,7 +17,13 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# Specify where Django should look for static files, in addition to app-specific 'static' folders
+STATICFILES_DIRS = [
+    BASE_DIR / 'proj' / 'static' / 'proj',  # Adjusted path
+]
 
+# Define where collected static files should be stored for deployment
+STATIC_ROOT = BASE_DIR / 'staticfiles' 
 MODEL_PATH = os.path.join(BASE_DIR, 'proj/ml_model/finalized_model.sav')
 VECTORIZER_PATH = os.path.join(BASE_DIR, 'proj/ml_model/finalized_vectorizer.pkl')
 # Quick-start development settings - unsuitable for production
@@ -81,8 +87,12 @@ WSGI_APPLICATION = 'finsage.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'finsages',
+        'USER': 'postgres',
+        'PASSWORD': '030105',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',  # Default port for PostgreSQL
     }
 }
 
